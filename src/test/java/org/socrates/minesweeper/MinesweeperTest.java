@@ -45,5 +45,15 @@ public class MinesweeperTest {
         assertThat(sut.difficulty(), is(25));
     }
 
+    @Test
+    public void should_count_click_on_same_field_only_once() {
+        final Minesweeper sut = new Minesweeper(1, 1, 1);
+
+        sut.leftClick(0, 0);
+        sut.leftClick(0, 0);
+
+        assertThat(sut.recognisedClicks(), is(1));
+    }
+
 
 }
