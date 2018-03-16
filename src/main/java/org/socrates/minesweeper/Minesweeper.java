@@ -2,16 +2,26 @@ package org.socrates.minesweeper;
 
 public class Minesweeper {
 
-    private int reconizedClicks;
+    private final int width;
+    private final int height;
+    private final int numberOfBombs;
+    private int recognizedClicks;
 
-    public Minesweeper(int width, int height) {
+    Minesweeper(int width, int height, int numberOfBombs) {
+        this.width = width;
+        this.height = height;
+        this.numberOfBombs = numberOfBombs;
     }
 
-    public void leftclick(int x, int y) {
-        reconizedClicks++;
+    public void leftClick(int x, int y) {
+        recognizedClicks++;
     }
 
     public int recognisedClicks() {
-        return reconizedClicks;
+        return recognizedClicks;
+    }
+
+    public int difficulty() {
+        return 100 / (width*height) * numberOfBombs;
     }
 }
